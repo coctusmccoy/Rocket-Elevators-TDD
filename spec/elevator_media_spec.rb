@@ -24,18 +24,10 @@ describe ElevatorMedia do
             # intervention relate test
             
             context 'test to retrieve customer id from interventions' do
-                    params = { 
-                        :adapter  => "mysql2",
-                        :host     => "slave_database.com",
-                        :username => "test",
-                        :database => "sample"
-                    }
-                    ActiveRecord::Base.should_receive(:establish_connection).with(params)
                 it 'returns wanted information' do
-                    intervention = Intervention.all
-                    informationWanted = 1
-                    inter
-                    expect(ElevatorMedia::Streamer.getContent(intervention, informationWanted, true ))
+                    chuckFact = JSON.load(open("https://api.chucknorris.io/jokes/random"))
+                    index = 0
+                    expect(ElevatorMedia::Streamer.getContent(chuckFact, index, true)).to eq("<div> the intervention #{index} is InProgress</div>")
                 end
             end
         end
