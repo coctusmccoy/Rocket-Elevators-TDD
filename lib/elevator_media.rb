@@ -1,10 +1,14 @@
 module ElevatorMedia
     class Streamer
-        def self.getContent(input, index, patate)
+        def self.getContent(input, index, interventionParams)
             @interventions = Intervention.all
-            if patate == true
-                puts index
-                "<div> the intervention #{index} is #{@interventions[index].status}</div>"
+            if input == nil
+                if index == nil
+                    
+                else
+                    "<div> the intervention #{index} is #{@interventions[index].status}</div>"
+                end
+                
             else
                 if index == nil
                     "<div>#{input["value"]}</div>"
